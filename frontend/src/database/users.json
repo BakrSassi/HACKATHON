@@ -1,0 +1,301 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "username": "bakr_sassi",
+      "password": "pass",
+      "email": "bakrtn9@gmail.com",
+      "role": "user",
+      "status": "active",
+      "profile": {
+        "firstName": "Bakr",
+        "lastName": "Sassi",
+        "avatar": "👨‍💻",
+        "phone": "+216 XX XXX XXX",
+        "address": "Tunisia"
+      },
+      "portfolio": {
+        "totalValue": 250000,
+        "auraScore": 95,
+        "assets": [
+          {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "quantity": 3.5,
+            "value": 157500
+          },
+          {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "quantity": 25,
+            "value": 54250
+          },
+          {
+            "name": "Solana",
+            "symbol": "SOL",
+            "quantity": 500,
+            "value": 38250
+          }
+        ]
+      },
+      "security": {
+        "twoFactorEnabled": true,
+        "lastPasswordChange": "2025-10-18",
+        "loginAttempts": 0,
+        "ipWhitelist": []
+      },
+      "activity": {
+        "joinedAt": "2025-10-18T15:00:00Z",
+        "lastActive": "2025-10-18T15:00:00Z",
+        "lastLogin": null,
+        "loginCount": 0,
+        "totalTransactions": 0
+      }
+    },
+    {
+      "id": "user_002",
+      "username": "john_doe",
+      "password": "user123",
+      "email": "john@example.com",
+      "role": "user",
+      "status": "active",
+      "profile": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "avatar": "👨",
+        "phone": "+1 234-567-8901",
+        "address": "123 Main St, New York, NY"
+      },
+      "portfolio": {
+        "totalValue": 134200,
+        "auraScore": 78,
+        "assets": [
+          {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "quantity": 2.5,
+            "value": 112500
+          },
+          {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "quantity": 10,
+            "value": 21700
+          }
+        ]
+      },
+      "security": {
+        "twoFactorEnabled": false,
+        "lastPasswordChange": "2025-09-15",
+        "loginAttempts": 0,
+        "ipWhitelist": []
+      },
+      "activity": {
+        "joinedAt": "2025-08-01T10:00:00Z",
+        "lastActive": "2025-10-18T14:30:00Z",
+        "lastLogin": "2025-10-18T08:00:00Z",
+        "loginCount": 47,
+        "totalTransactions": 12
+      }
+    },
+    {
+      "id": "user_003",
+      "username": "jane_smith",
+      "password": "user456",
+      "email": "jane@example.com",
+      "role": "user",
+      "status": "active",
+      "profile": {
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "avatar": "👩",
+        "phone": "+1 234-567-8902",
+        "address": "456 Oak Ave, Los Angeles, CA"
+      },
+      "portfolio": {
+        "totalValue": 89500,
+        "auraScore": 85,
+        "assets": [
+          {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "quantity": 1.2,
+            "value": 54000
+          },
+          {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "quantity": 15,
+            "value": 32500
+          },
+          {
+            "name": "Cardano",
+            "symbol": "ADA",
+            "quantity": 5000,
+            "value": 3000
+          }
+        ]
+      },
+      "security": {
+        "twoFactorEnabled": true,
+        "lastPasswordChange": "2025-10-01",
+        "loginAttempts": 0,
+        "ipWhitelist": ["192.168.1.100"]
+      },
+      "activity": {
+        "joinedAt": "2025-09-10T12:00:00Z",
+        "lastActive": "2025-10-17T16:45:00Z",
+        "lastLogin": "2025-10-17T09:30:00Z",
+        "loginCount": 28,
+        "totalTransactions": 8
+      }
+    },
+    {
+      "id": "user_004",
+      "username": "mike_wilson",
+      "password": "user789",
+      "email": "mike@example.com",
+      "role": "user",
+      "status": "active",
+      "profile": {
+        "firstName": "Mike",
+        "lastName": "Wilson",
+        "avatar": "👨‍💼",
+        "phone": "+1 234-567-8903",
+        "address": "789 Pine Rd, Chicago, IL"
+      },
+      "portfolio": {
+        "totalValue": 256800,
+        "auraScore": 92,
+        "assets": [
+          {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "quantity": 4.5,
+            "value": 202500
+          },
+          {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "quantity": 25,
+            "value": 54300
+          }
+        ]
+      },
+      "security": {
+        "twoFactorEnabled": true,
+        "lastPasswordChange": "2025-09-20",
+        "loginAttempts": 0,
+        "ipWhitelist": ["192.168.1.101", "10.0.0.50"]
+      },
+      "activity": {
+        "joinedAt": "2025-07-20T08:00:00Z",
+        "lastActive": "2025-10-18T11:20:00Z",
+        "lastLogin": "2025-10-18T07:15:00Z",
+        "loginCount": 65,
+        "totalTransactions": 24
+      }
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin_001",
+      "username": "admin",
+      "password": "Admin@2025",
+      "email": "admin@aura.com",
+      "role": "super_admin",
+      "permissions": ["all"],
+      "profile": {
+        "firstName": "System",
+        "lastName": "Administrator",
+        "avatar": "👑",
+        "phone": "+1 800-AURA-ADMIN",
+        "department": "IT & Security"
+      },
+      "security": {
+        "twoFactorEnabled": true,
+        "lastPasswordChange": "2025-10-01",
+        "loginAttempts": 0,
+        "ipWhitelist": ["192.168.1.1"]
+      },
+      "activity": {
+        "createdAt": "2025-01-01T00:00:00Z",
+        "lastActive": "2025-10-18T15:00:00Z",
+        "lastLogin": "2025-10-18T14:00:00Z",
+        "loginCount": 234,
+        "actionsPerformed": 1567
+      }
+    },
+    {
+      "id": "admin_002",
+      "username": "moderator",
+      "password": "Mod@2025",
+      "email": "mod@aura.com",
+      "role": "moderator",
+      "permissions": [
+        "view_users",
+        "moderate_community",
+        "view_logs",
+        "view_analytics"
+      ],
+      "profile": {
+        "firstName": "Community",
+        "lastName": "Moderator",
+        "avatar": "👤",
+        "phone": "+1 800-AURA-MOD",
+        "department": "Community Management"
+      },
+      "security": {
+        "twoFactorEnabled": true,
+        "lastPasswordChange": "2025-09-15",
+        "loginAttempts": 0,
+        "ipWhitelist": ["192.168.1.2"]
+      },
+      "activity": {
+        "createdAt": "2025-03-15T00:00:00Z",
+        "lastActive": "2025-10-18T13:30:00Z",
+        "lastLogin": "2025-10-18T10:00:00Z",
+        "loginCount": 89,
+        "actionsPerformed": 456
+      }
+    }
+  ],
+  "sessions": [],
+  "loginHistory": [
+    {
+      "id": "log_001",
+      "userId": "admin_001",
+      "username": "admin",
+      "timestamp": "2025-10-18T14:00:00Z",
+      "ip": "192.168.1.1",
+      "userAgent": "Mozilla/5.0",
+      "success": true,
+      "location": "New York, USA"
+    },
+    {
+      "id": "log_002",
+      "userId": "user_001",
+      "username": "john_doe",
+      "timestamp": "2025-10-18T08:00:00Z",
+      "ip": "192.168.1.50",
+      "userAgent": "Mozilla/5.0",
+      "success": true,
+      "location": "New York, USA"
+    }
+  ],
+  "settings": {
+    "sessionDuration": 28800000,
+    "maxLoginAttempts": 5,
+    "passwordMinLength": 8,
+    "requireTwoFactor": false,
+    "maintenanceMode": false,
+    "registrationEnabled": true
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastBackup": "2025-10-18T00:00:00Z",
+    "totalUsers": 4,
+    "totalAdmins": 2,
+    "databaseCreated": "2025-10-18T15:00:00Z"
+  }
+}
