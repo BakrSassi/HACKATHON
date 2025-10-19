@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔄 Réinitialiser la Base de Données - AURA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .warning-box {
+            background: rgba(255, 152, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .warning-box h3 {
+            color: #FF9800;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .status h3 {
+            margin-bottom: 15px;
+        }
+
+        #dbStatus {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #f44336, #e91e63);
+            color: #fff;
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 67, 54, 0.4);
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        .success h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Réinitialiser la Base de Données</h1>
+        <p class="subtitle">AURA - Gestion de la Base de Données</p>
+
+        <div class="info-box">
+            <h3>✨ Nouveau Compte Détecté</h3>
+            <p><strong>Username:</strong> bakr_sassi</p>
+            <p><strong>Email:</strong> bakrtn9@gmail.com</p>
+            <p><strong>Portfolio:</strong> $250,000</p>
+            <p><strong>Score AURA:</strong> 95/100</p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Pourquoi réinitialiser?</h3>
+            <p>Votre compte a été ajouté dans le fichier <code>users.json</code>, mais l'application utilise encore l'ancienne base de données en cache (localStorage).</p>
+            <p><strong>Cette action va:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>✅ Supprimer l'ancienne base de données</li>
+                <li>✅ Charger la nouvelle avec votre compte</li>
+                <li>✅ Recharger automatiquement la page</li>
+            </ul>
+        </div>
+
+        <div class="status">
+            <h3>📊 État Actuel</h3>
+            <div id="dbStatus">Chargement...</div>
+        </div>
+
+        <button class="reset-btn" onclick="resetDatabase()">
+            🔄 Réinitialiser et Charger Mon Compte
+        </button>
+
+        <button class="back-btn" onclick="window.location.href='/'">
+            ← Retour à l'Accueil
+        </button>
+    </div>
+
+    <script>
+        // Afficher l'état actuel de la base de données
+        function checkDatabase() {
+            const db = localStorage.getItem('aura_database');
+            const statusDiv = document.getElementById('dbStatus');
+            
+            if (db) {
+                try {
+                    const parsed = JSON.parse(db);
+                    const users = parsed.users || [];
+                    const bakrExists = users.find(u => u.username === 'bakr_sassi');
+                    
+                    statusDiv.innerHTML = `
+                        <strong>Base de données trouvée</strong><br>
+                        Utilisateurs: ${users.length}<br>
+                        Admins: ${(parsed.admins || []).length}<br>
+                        <br>
+                        ${bakrExists 
+                            ? '✅ <span style="color: #4CAF50;">Votre compte existe!</span>'
+                            : '❌ <span style="color: #f44336;">Votre compte n\'existe pas encore</span>'
+                        }
+                    `;
+                } catch (e) {
+                    statusDiv.innerHTML = '❌ Base de données corrompue';
+                }
+            } else {
+                statusDiv.innerHTML = '❌ Aucune base de données trouvée';
+            }
+        }
+
+        // Réinitialiser la base de données
+        function resetDatabase() {
+            const container = document.querySelector('.container');
+            
+            // Confirmation
+            if (!confirm('⚠️ Voulez-vous vraiment réinitialiser la base de données?\n\nCela supprimera toutes les sessions en cours.')) {
+                return;
+            }
+
+            // Supprimer toutes les données
+            localStorage.removeItem('aura_database');
+            localStorage.removeItem('aura_session');
+            localStorage.removeItem('aura_token');
+            localStorage.removeItem('aura_2fa_codes');
+
+            // Afficher le succès
+            container.innerHTML = `
+                <div class="success">
+                    <h1>✅</h1>
+                    <h2>Base de Données Réinitialisée!</h2>
+                    <p>Votre compte <strong>bakr_sassi</strong> sera chargé lors du prochain rafraîchissement.</p>
+                    <p>Redirection dans <span class="countdown" id="countdown">3</span> secondes...</p>
+                </div>
+            `;
+
+            // Compte à rebours
+            let count = 3;
+            const countdownEl = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                count--;
+                countdownEl.textContent = count;
+                if (count <= 0) {
+                    clearInterval(interval);
+                    window.location.href = '/';
+                }
+            }, 1000);
+        }
+
+        // Vérifier au chargement
+        checkDatabase();
+
+        // Mise à jour toutes les 2 secondes
+        setInterval(checkDatabase, 2000);
+    </script>
+</body>
+</html>
